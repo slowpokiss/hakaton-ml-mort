@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: #6cb17a;
+}
+
+input:focus, select {
+  outline: none;
+}
+
+input {
+  font-weight: normal;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
