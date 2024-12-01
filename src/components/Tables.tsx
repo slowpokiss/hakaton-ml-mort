@@ -8,15 +8,18 @@ const conicColors: ProgressProps['strokeColor'] = {
 };
 
 interface props {
-  param: number | string;
+  param: number | string| any;
   type: string;
 }
 
 export default function Tables({param, type}: props) {
   let container;
 
-  if (type === 'Churn ROC AUC' || type === 'Bad loans' && typeof param === 'number') {
+  if (type === 'churn_auc' || type === 'bad_loans' && typeof param === 'number') {
     container = <Progress type="dashboard" percent={Number(param)} strokeColor={conicColors} />
+    if (type === 'churn_auc') {
+      container = <Progress type="dashboard" percent={Number(param * 100)} strokeColor={conicColors} />
+    }
   } else {  // if (type === 'Total Profit') {
     container = <div className="number-value">{param}</div>
   }

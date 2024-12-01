@@ -4,17 +4,18 @@ export interface initialStateInterface {
   currMetrics: any;
 }
 
+const initialState: initialStateInterface = {
+  currMetrics: [],
+};
+
 export const mainSlice = createSlice({
   name: "mainSlice",
-  initialState: {
-    currMetrics: ''
-  } satisfies initialStateInterface as initialStateInterface,
+  initialState,
   reducers: {
-    setCurrMetrics(state) {
-      console.log(state)
-      state.currMetrics = !state.currMetrics;
+    setCurrMetrics(state, action) {
+      state.currMetrics = action.payload;
     },
-  }
+  },
 });
 
 export const { setCurrMetrics } = mainSlice.actions;
